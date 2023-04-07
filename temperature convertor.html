@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Converter</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto', sans-serif;
+			background-color: #f8f8f8;
+		}
+		.container {
+			margin: 50px auto;
+			max-width: 500px;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+		}
+		h1 {
+			font-size: 36px;
+			margin-top: 0;
+			text-align: center;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 20px 0;
+		}
+		label {
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		input {
+			font-size: 16px;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.btn {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
+		.btn:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Temperature Converter</h1>
+		<form>
+			<label for="celsius">Celsius</label>
+			<input type="number" id="celsius" placeholder="Enter temperature in Celsius" required>
+
+			<label for="fahrenheit">Fahrenheit</label>
+			<input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit" required>
+
+			<button class="btn" type="button" onclick="convert()">Convert</button>
+		</form>
+	</div>
+
+	<script>
+		function convert() {
+			let celsius = document.getElementById("celsius").value;
+			let fahrenheit = document.getElementById("fahrenheit").value;
+
+			if (celsius) {
+				fahrenheit = (celsius * 1.8) + 32;
+				document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
+			} else if (fahrenheit) {
+				celsius = (fahrenheit - 32) / 1.8;
+				document.getElementById("celsius").value = celsius.toFixed(2);
+			}
+		}
+	</script>
+</body>
+</html>
